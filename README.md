@@ -70,73 +70,48 @@ Saída esperada:
 
 ---
 
-## 🔍 Consultas Básicas
+🔍 Consultas Básicas
 
-### Total de registros
+Total de registros
 
-```sql
 SELECT COUNT(*) FROM trabalho_sp;
-```
+Laudas por ano
 
-### Laudas por ano
-
-```sql
 SELECT ano, SUM(laudas) 
 FROM trabalho_sp
 GROUP BY ano
 ORDER BY ano;
-```
+Top 5 tipos de documentos
 
-### Top 5 tipos de documentos
-
-```sql
 SELECT tipo_documento, COUNT(*) 
 FROM trabalho_sp
 GROUP BY tipo_documento
 ORDER BY COUNT(*) DESC
 LIMIT 5;
-```
+Idiomas mais frequentes
 
-### Idiomas mais frequentes
-
-```sql
 SELECT idioma, COUNT(*) 
 FROM trabalho_sp
 GROUP BY idioma
 ORDER BY COUNT(*) DESC;
-```
+🔍 Consultas Avançadas (Executadas no Projeto)
 
----
+1) Totais gerais (CQ vs Revisão)
 
-## 🔍 Consultas Avançadas (Executadas no Projeto)
-
-### 1) Totais gerais (CQ vs Revisão)
-
-```sql
 SELECT tipo_atividade, COUNT(*) AS total
 FROM trabalho_sp
 WHERE tipo_atividade IN ('CQ','Revisão')
 GROUP BY tipo_atividade
 ORDER BY total DESC;
-```
+2) Totais por ano (CQ vs Revisão)
 
----
-
-### 2) Totais por ano (CQ vs Revisão)
-
-```sql
 SELECT ano_planilha, tipo_atividade, COUNT(*) AS total
 FROM trabalho_sp
 WHERE tipo_atividade IN ('CQ','Revisão')
 GROUP BY ano_planilha, tipo_atividade
 ORDER BY ano_planilha, tipo_atividade;
-```
+3) Totais por mês (agregando todos os anos)
 
----
-
-### 3) Totais por mês (agregando todos os anos)
-
-```sql
 SELECT mes_num,
        CASE mes_num
             WHEN 1 THEN 'Janeiro' WHEN 2 THEN 'Fevereiro'
@@ -152,13 +127,8 @@ FROM trabalho_sp
 WHERE tipo_atividade IN ('CQ','Revisão')
 GROUP BY mes_num, tipo_atividade
 ORDER BY mes_num, tipo_atividade;
-```
+4) Mês mais movimentado (todos os anos)
 
----
-
-### 4) Mês mais movimentado (todos os anos)
-
-```sql
 SELECT mes_num,
        CASE mes_num
             WHEN 1 THEN 'Janeiro' WHEN 2 THEN 'Fevereiro'
@@ -174,13 +144,8 @@ WHERE tipo_atividade IN ('CQ','Revisão')
 GROUP BY mes_num
 ORDER BY total DESC
 LIMIT 1;
-```
+5) Idioma mais revisado em cada ano
 
----
-
-### 5) Idioma mais revisado em cada ano
-
-```sql
 WITH contagem AS (
     SELECT ano_planilha, idioma, COUNT(*) AS total
     FROM trabalho_sp
@@ -196,13 +161,8 @@ SELECT ano_planilha, idioma, total
 FROM ranked
 WHERE rk = 1
 ORDER BY ano_planilha;
-```
+6) Documento mais recorrente em cada mês por ano
 
----
-
-### 6) Documento mais recorrente em cada mês por ano
-
-```sql
 WITH contagem AS (
     SELECT ano_planilha, mes_num, tipo_documento, COUNT(*) AS total
     FROM trabalho_sp
@@ -228,13 +188,8 @@ SELECT ano_planilha,
 FROM ranked
 WHERE rk = 1
 ORDER BY ano_planilha, mes_num;
-```
+7) Tempo médio por tipo de documento
 
----
-
-### 7) Tempo médio por tipo de documento
-
-```sql
 SELECT tipo_documento,
        ROUND(AVG(EXTRACT(EPOCH FROM (termino - inicio)) / 60), 2) AS media_minutos,
        COUNT(*) AS total_registros
@@ -244,13 +199,8 @@ WHERE tipo_atividade IN ('CQ','Revisão')
   AND termino IS NOT NULL
 GROUP BY tipo_documento
 ORDER BY media_minutos DESC;
-```
+8) Documentos que mais demoraram (Top 10)
 
----
-
-### 8) Documentos que mais demoraram (Top 10)
-
-```sql
 SELECT tipo_documento,
        ROUND(AVG(EXTRACT(EPOCH FROM (termino - inicio)) / 60), 2) AS media_minutos
 FROM trabalho_sp
@@ -260,7 +210,6 @@ WHERE tipo_atividade IN ('CQ','Revisão')
 GROUP BY tipo_documento
 ORDER BY media_minutos DESC
 LIMIT 10;
-```
 
 ---
 
