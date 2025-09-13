@@ -1,26 +1,26 @@
 ````markdown
-# 📊 Projeto de Análise de Dados – Traduções
+# Projeto de Análise de Dados – Traduções
 
 Este projeto tem como objetivo consolidar planilhas de tradução de diferentes anos (2022–2025), padronizar os dados em **Python** e carregá-los em um banco de dados **PostgreSQL** para consultas **SQL** e análises de produtividade.
 
 ---
 
-## 🚀 Fluxo de Trabalho
+## Fluxo de Trabalho
 
-1. **Padronização dos dados**
+1. Padronização dos dados
    - Planilhas originais em Excel (2022–2025).
    - Script [`padronizar_planilhas.py`](./padronizar_planilhas.py) → renomeia colunas, trata diferenças, unifica formatos.
    - Geração do arquivo consolidado: `trabalho_sp_padronizado.csv`.
 
-2. **Criação do banco de dados**
+2. Criação do banco de dados
    - Banco `sp_traducoes` criado no **pgAdmin**.
    - Tabela `trabalho_sp` definida via [`create_table.sql`](./create_table.sql).
 
-3. **Carregamento dos dados**
+3. Carregamento dos dados
    - Importação do CSV via **pgAdmin** → *Import/Export Data*.
    - Verificação com `SELECT COUNT(*)`.
 
-4. **Consultas SQL**
+4. Consultas SQL
    - Análises de produtividade (nº de traduções, laudas, tipos de documentos, idiomas, tempo médio de execução, etc.).
    - Queries documentadas em [`queries_examples.sql`](./queries_examples.sql).
 
