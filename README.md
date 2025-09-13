@@ -272,3 +272,14 @@ LIMIT 10;
 
 ---
 
+---
+
+## Próximos Passos
+
+Este projeto está em evolução. As próximas melhorias planejadas incluem:
+
+- **Integração Python → PostgreSQL**: conectar o script `padronizar_planilhas.py` diretamente ao banco, carregando os dados sem precisar do CSV intermediário.  
+- **Automação do fluxo ETL**: criar um pipeline que leia novas planilhas automaticamente e atualize o banco com os dados mais recentes.  
+- **Visualizações em Power BI / Metabase**: desenvolver dashboards para analisar métricas como laudas traduzidas, tipos de documentos mais recorrentes e tempo médio de execução.  
+- **Análises estatísticas adicionais**: aplicar técnicas de estatística descritiva e exploração para encontrar padrões nos dados de traduções.  
+- **Validação de dados**: criar regras de consistência para evitar inconsistências (ex.: horários inválidos, colunas faltantes).  
