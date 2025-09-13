@@ -278,5 +278,3 @@ Este projeto está em evolução. As próximas melhorias planejadas incluem:
 ✨ Projeto desenvolvido para compor meu portfólio de dados.
 📎 Confira também meu repositório principal: [Portfolio](https://github.com/myhtorres/Portfolio)
 
-```
-
