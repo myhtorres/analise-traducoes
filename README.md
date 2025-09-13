@@ -13,8 +13,8 @@ Este projeto tem como objetivo consolidar planilhas de tradução de diferentes 
    - Geração do arquivo consolidado: `trabalho_sp_padronizado.csv`.
 
 2. Criação do banco de dados
-   - Banco `sp_traducoes` criado no **pgAdmin**.
-   - Tabela `trabalho_sp` definida via [`create_table.sql`](./create_table.sql).
+   - Banco `sp_traducoes` criado no pgAdmin.
+   - Tabela `trabalho_sp` definida via SQL.  
 
 3. Carregamento dos dados
    - Importação do CSV via **pgAdmin** → *Import/Export Data*.
@@ -26,7 +26,7 @@ Este projeto tem como objetivo consolidar planilhas de tradução de diferentes 
 
 ---
 
-## 🗄️ Estrutura da Tabela
+## Estrutura da Tabela
 
 ```sql
 CREATE TABLE trabalho_sp (
@@ -50,7 +50,7 @@ CREATE TABLE trabalho_sp (
 
 ---
 
-## 🐍 Script Python (Padronização)
+## Script Python (Padronização)
 
 O script **`padronizar_planilhas.py`** utiliza **pandas** e **openpyxl** para:
 
@@ -113,7 +113,7 @@ ORDER BY total DESC;
 
 ---
 
-## 🔍 Consultas Avançadas
+## Consultas Avançadas (Executadas no Projeto)
 
 ### 1) Totais gerais (CQ vs Revisão)
 
@@ -263,15 +263,15 @@ LIMIT 10;
 
 ---
 
-## 🔮 Próximos Passos
+## Próximos Passos
 
 Este projeto está em evolução. As próximas melhorias planejadas incluem:
 
-* 🔗 Integração Python → PostgreSQL (inserir dados direto sem CSV intermediário)
-* ⚙️ Automação do fluxo ETL para atualizar dados novos automaticamente
-* 📊 Dashboards em Power BI / Metabase para visualização das métricas
-* 📈 Análises estatísticas adicionais (ex.: produtividade por idioma/documento)
-* ✅ Regras de validação para consistência dos dados
+* Integração Python → PostgreSQL (inserir dados direto sem CSV intermediário)
+* Automação do fluxo ETL para atualizar dados novos automaticamente
+* Dashboards em Power BI / Metabase para visualização das métricas
+* Análises estatísticas adicionais (ex.: produtividade por idioma/documento)
+* Regras de validação para consistência dos dados
 
 ---
 
@@ -279,6 +279,4 @@ Este projeto está em evolução. As próximas melhorias planejadas incluem:
 📎 Confira também meu repositório principal: [Portfolio](https://github.com/myhtorres/Portfolio)
 
 ```
-
----
 
